@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - 13
+
+services:
+  - docker
+
+install:
+  - echo "nothing to be installed"
+
+before_scripts:
+  - echo "no tests"
+
+scripts:
+  - docker --version 
+  - docker build -t simple-node .
+  - docker tag simple-node luancaius/simple-node:latest
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --passwrod-stdin
+  - docker push luancaius/simple-node
