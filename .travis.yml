@@ -13,9 +13,9 @@ before_scripts:
 
 scripts:
   - docker --version 
-  - docker build -t simple-node .
-  - docker tag simple-node luancaius/simple-node:latest
+  - docker build -t simple-node1 .
+  - docker tag simple-node luancaius/simple-node1:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --passwrod-stdin
-  - docker push luancaius/simple-node
+  - docker push luancaius/simple-node1
