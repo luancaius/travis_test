@@ -14,7 +14,7 @@ before_scripts:
 scripts:
   - docker --version 
   - docker build -t simple-node2 .
-  - docker tag simple-node2 luancaius/simple-node1:latest
+  - docker tag simple-node2 luancaius/simple-node2:latest
 
 
 after_success:
