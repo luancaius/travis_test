@@ -13,10 +13,10 @@ before_scripts:
 
 scripts:
   - docker --version 
-  - docker build -t simple-node1 .
-  - docker tag simple-node1 luancaius/simple-node1:latest
+  - docker build -t simple-node2 .
+  - docker tag simple-node2 luancaius/simple-node1:latest
 
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push luancaius/simple-node1
+  - docker push luancaius/simple-node2
