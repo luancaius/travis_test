@@ -15,7 +15,10 @@ scripts:
   - docker --version 
   - docker build -t simple-node1 .
   - docker tag simple-node1 luancaius/simple-node1:latest
-
+  - docker build -t reverseproxy ./docker/
+  - docker tag reverseproxy luancaius/reverseproxy:latest
+  
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --passwrod-stdin
   - docker push luancaius/simple-node1
+  - docker push luancaius/reverseproxy
